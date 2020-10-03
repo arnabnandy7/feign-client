@@ -25,8 +25,8 @@ public class JokeController {
 
 // Rest call using feign client
     @GetMapping("/joke")
-    public JokeResponse getJoke(){
-        return jokeClient.getJoke(apiHost,apiKey);
+    public JokeResponse getJoke(@RequestHeader(value = "x-rapidapi-host") String xRapidApiHost, @RequestHeader(value="x-rapidapi-key") String xRapidApiKey){
+        return jokeClient.getJoke(xRapidApiHost,xRapidApiKey);
         
     }
 }
